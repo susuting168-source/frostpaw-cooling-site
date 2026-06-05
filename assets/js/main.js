@@ -179,10 +179,33 @@ if (modal) {
 document.querySelectorAll('[data-quote-form]').forEach(form => {
   form.addEventListener('submit', event => {
     event.preventDefault();
+
+    const formData = new FormData(form);
+    const name = formData.get('name') || '';
+    const email = formData.get('email') || '';
+    const company = formData.get('company') || '';
+    const quantity = formData.get('moq') || '';
+    const message = formData.get('message') || '';
     const note = form.querySelector('[data-form-note]');
+
+    const whatsappMessage = [
+      'Hello FrostPaw Cooling, I would like to get a wholesale quote for pet cooling mats.',
+      '',
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Company: ${company}`,
+      `Estimated Quantity: ${quantity}`,
+      `Message: ${message || 'Please share product catalog, MOQ, pricing and OEM options.'}`,
+      '',
+      `Source: ${window.location.href}`
+    ].join('\n');
+
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=8615277383017&text=${encodeURIComponent(whatsappMessage)}`;
+
     if (note) {
-      note.textContent = 'Inquiry received. Connect this form to Formspree, Shopify, WooCommerce or your CRM before launch.';
+      note.textContent = 'Opening WhatsApp with your inquiry details...';
     }
-    form.reset();
+
+    window.open(whatsappUrl, '_blank', 'noopener');
   });
 });
