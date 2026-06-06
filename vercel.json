@@ -1,0 +1,19 @@
+{
+  "headers": [
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
+        { "key": "CDN-Cache-Control", "value": "no-store" },
+        { "key": "Cloudflare-CDN-Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" },
+        { "key": "CDN-Cache-Control", "value": "max-age=3600" }
+      ]
+    }
+  ]
+}
