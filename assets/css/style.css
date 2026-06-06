@@ -1371,3 +1371,27 @@ html, body {
     padding: 36px 16px 56px !important;
   }
 }
+
+
+/* ===== Mobile CTA button polish ===== */
+@media (max-width: 760px) {
+  /* Primary CTA — keep full-width but tighten height */
+  .hero-actions .btn {
+    min-height: 52px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+  /* Ghost / outline CTA — lighter visual weight */
+  .hero-actions .btn.btn-outline,
+  .hero-actions .btn[class*="outline"],
+  .hero-actions .btn:not(.btn-primary):not([style*="background"]) {
+    min-height: 46px;
+    font-size: 14px;
+    border-width: 1.5px;
+    opacity: 0.88;
+  }
+  /* Stack with tighter gap */
+  .hero-actions {
+    gap: 10px !important;
+  }
+}
