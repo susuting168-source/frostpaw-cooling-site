@@ -1158,3 +1158,216 @@ p{
 @media (max-width:760px){
   .modal-actions{grid-template-columns:1fr}
 }
+
+
+/* ===== Mobile Fix Patch: overflow, layout, spacing ===== */
+
+/* 1. Prevent horizontal overflow globally */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Fix oem-panel-pro: minmax(300px) causes overflow on mobile */
+@media (max-width: 760px) {
+  .oem-panel-pro {
+    grid-template-columns: 1fr !important;
+    overflow: hidden;
+  }
+  .oem-items-pro {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .packaging-pro {
+    width: 110px !important;
+  }
+}
+
+/* 3. Fix oem-panel-pro-v3: padding + grid overflow */
+@media (max-width: 640px) {
+  .oem-panel-pro-v3 {
+    padding: 20px 16px !important;
+    overflow: hidden;
+  }
+  .oem-v3-head,
+  .oem-v3-body,
+  .oem-service-grid-v3,
+  .oem-v3-process {
+    grid-template-columns: 1fr !important;
+  }
+  .oem-packaging-card-v3 {
+    grid-template-columns: 1fr !important;
+  }
+  .oem-service-grid-v3 article,
+  .oem-items-pro article {
+    min-height: auto !important;
+  }
+}
+
+/* 4. Fix CTA buttons: avoid awkward full-width stacking */
+@media (max-width: 760px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  /* Keep secondary link-arrow as inline */
+  .hero-actions .link-arrow {
+    width: auto;
+    text-align: center;
+  }
+}
+
+/* 5. Fix product grid cards: ensure images don't overflow */
+@media (max-width: 760px) {
+  .product-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 4px;
+  }
+  .product-card {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .product-img {
+    width: 100%;
+    overflow: hidden;
+  }
+  .product-img img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+/* 6. Fix why-grid-pro: 5 columns too wide on mobile */
+@media (max-width: 760px) {
+  .why-grid-pro {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .why-grid-pro article {
+    min-height: auto !important;
+    padding: 18px 16px !important;
+  }
+}
+
+/* 7. Fix hero slider: ensure no overflow */
+@media (max-width: 760px) {
+  .hero-stage {
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .hero-slider {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .hero-slide img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* 8. Fix section horizontal padding on very small screens */
+@media (max-width: 400px) {
+  .container {
+    width: calc(100% - 24px) !important;
+    padding: 0 12px !important;
+  }
+  .section {
+    padding: 36px 0 !important;
+  }
+  h1 {
+    font-size: 32px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* 9. Fix contact info grid 4-col on mobile */
+@media (max-width: 760px) {
+  .contact-info-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .contact-info-grid article {
+    padding: 18px !important;
+  }
+  .contact-info-grid p {
+    min-height: auto !important;
+  }
+}
+
+/* 10. Fix map-panel: remove fixed min-height on mobile */
+@media (max-width: 640px) {
+  .map-panel {
+    padding: 24px 18px !important;
+    border-radius: 18px !important;
+  }
+  .map-placeholder {
+    min-height: 200px !important;
+  }
+}
+
+/* 11. WhatsApp float: ensure it never covers main CTA */
+@media (max-width: 760px) {
+  .whatsapp-float {
+    bottom: 16px;
+    right: 14px;
+    z-index: 110;
+  }
+}
+
+/* 12. Footer nav links: better spacing on mobile */
+@media (max-width: 760px) {
+  .footer-grid > div {
+    padding: 0;
+  }
+  .footer-grid a {
+    display: block;
+    padding: 4px 0;
+  }
+  .site-footer {
+    padding: 40px 0 24px;
+  }
+}
+
+/* 13. Blog article page mobile fix */
+@media (max-width: 600px) {
+  .blog-article {
+    padding: 24px 16px 56px !important;
+  }
+  .steps-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .compare-table {
+    font-size: 0.82rem !important;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .compare-table th,
+  .compare-table td {
+    padding: 8px 10px !important;
+    white-space: nowrap;
+  }
+  .cta-box {
+    padding: 24px 16px !important;
+  }
+}
+
+/* 14. Blog list page mobile fix */
+@media (max-width: 600px) {
+  .blog-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .blog-hero {
+    padding: 40px 20px 32px !important;
+  }
+  .blog-grid-section {
+    padding: 36px 16px 56px !important;
+  }
+}
