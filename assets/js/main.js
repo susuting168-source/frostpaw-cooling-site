@@ -1,9 +1,11 @@
 const nav = document.querySelector('[data-nav]');
-const toggle = document.querySelector('[data-menu-toggle]');
+const toggle = document.querySelector('[data-menu-toggle], [data-nav-toggle]');
 const modal = document.querySelector('[data-modal]');
 const modalContent = document.querySelector('[data-modal-content]');
 
 if (toggle && nav) {
+  toggle.setAttribute('aria-expanded', 'false');
+
   toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', String(open));
@@ -11,6 +13,14 @@ if (toggle && nav) {
 
   nav.addEventListener('click', event => {
     if (event.target.matches('a')) {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('click', event => {
+    if (!nav.classList.contains('is-open')) return;
+    if (!nav.contains(event.target) && !toggle.contains(event.target)) {
       nav.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
     }

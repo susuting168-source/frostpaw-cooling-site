@@ -58,7 +58,7 @@
     .prod-hero-actions .btn-ghost{border:2px solid rgba(255,255,255,.7);color:#fff;padding:11px 22px;border-radius:10px;font-weight:600;text-decoration:none;font-size:.95rem;transition:border-color .2s,color .2s}
     .prod-hero-actions .btn-ghost:hover{border-color:#fff;color:#fff}
     .prod-hero-img{position:relative;overflow:hidden}
-    .prod-hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .prod-hero-img img{width:100%;height:100%;object-fit:contain;display:block}
     .prod-body{max-width:1100px;margin:0 auto;padding:56px 24px 80px;display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:start}
     .prod-main h2{font-size:1.3rem;margin-top:40px;margin-bottom:14px;color:#111;border-left:4px solid #00b4d8;padding-left:14px}
     .prod-main p{line-height:1.8;color:#333;margin-bottom:16px}
@@ -136,7 +136,7 @@
         <a href="../contact.html">Contact Us</a>
       </nav>
       <a href="../contact.html" class="btn-inquiry">&#x2709; Send Inquiry</a>
-      <button class="nav-toggle" aria-label="Toggle menu" data-nav-toggle><span></span><span></span><span></span></button>
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     </div>
   </header>
   <main id="main">
@@ -157,7 +157,7 @@
           </div>
         </div>
         <div class="prod-hero-img">
-          <img src="../assets/images/product-travel.jpg" alt="Travel Cooling Mat — wholesale OEM pet cooling mat" width="550" height="460" />
+          <img src="../assets/images/product-travel.jpg" alt="Travel Cooling Mat — wholesale OEM pet cooling mat" width="720" height="900" decoding="async" fetchpriority="high">
         </div>
       </div>
     </section>
@@ -226,7 +226,7 @@
       <h2>More Products You May Like</h2>
       <div class="related-grid">
         <a href="icewave-cooling-mat.html" class="related-card">
-          <img src="../assets/images/product-icewave.jpg" alt="IceWave Cooling Mat" loading="lazy" />
+          <img src="../assets/images/product-icewave.jpg" alt="IceWave Cooling Mat" width="720" height="900" decoding="async" loading="lazy">
           <div class="related-card-body">
             <h3>IceWave Cooling Mat</h3>
             <p>Wholesale-ready self-cooling pad for dogs and cats, available for OEM ...</p>
@@ -234,7 +234,7 @@
           </div>
         </a>
         <a href="cat-chill-pad.html" class="related-card">
-          <img src="../assets/images/product-cat-chill.jpg" alt="Cat Chill Pad" loading="lazy" />
+          <img src="../assets/images/product-cat-chill.jpg" alt="Cat Chill Pad" width="720" height="900" decoding="async" loading="lazy">
           <div class="related-card-body">
             <h3>Cat Chill Pad</h3>
             <p>Soft cooling pad for cats and small pets, with size and packaging cust...</p>
@@ -242,7 +242,7 @@
           </div>
         </a>
         <a href="home-comfort-cooling-pad.html" class="related-card">
-          <img src="../assets/images/product-home-comfort.jpg" alt="Home Comfort Cooling Pad" loading="lazy" />
+          <img src="../assets/images/product-home-comfort.jpg" alt="Home Comfort Cooling Pad" width="720" height="900" decoding="async" loading="lazy">
           <div class="related-card-body">
             <h3>Home Comfort Cooling Pad</h3>
             <p>Indoor cooling mat designed for floors, sofas and pet beds....</p>
