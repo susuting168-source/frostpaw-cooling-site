@@ -162,8 +162,12 @@ const closeModal = () => {
 };
 
 document.querySelectorAll('.product-card').forEach(card => {
-  card.addEventListener('click', () => openModal(card));
+  card.addEventListener('click', event => {
+    if (event.target.closest('a, button')) return;
+    openModal(card);
+  });
   card.addEventListener('keydown', event => {
+    if (event.target.closest('a, button')) return;
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       openModal(card);
@@ -193,7 +197,9 @@ document.querySelectorAll('[data-quote-form]').forEach(form => {
     const formData = new FormData(form);
     const name = formData.get('name') || '';
     const email = formData.get('email') || '';
+    const phone = formData.get('phone') || '';
     const company = formData.get('company') || '';
+    const country = formData.get('country') || '';
     const quantity = formData.get('moq') || '';
     const message = formData.get('message') || '';
     const note = form.querySelector('[data-form-note]');
@@ -203,7 +209,9 @@ document.querySelectorAll('[data-quote-form]').forEach(form => {
       '',
       `Name: ${name}`,
       `Email: ${email}`,
+      `Phone / WhatsApp: ${phone}`,
       `Company: ${company}`,
+      `Country / Region: ${country}`,
       `Estimated Quantity: ${quantity}`,
       `Message: ${message || 'Please share product catalog, MOQ, pricing and OEM options.'}`,
       '',
