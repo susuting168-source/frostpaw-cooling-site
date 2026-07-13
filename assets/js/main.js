@@ -120,7 +120,7 @@ const openModal = card => {
   const title = card.dataset.product || 'Product';
   const subtitle = card.dataset.subtitle || '';
   const desc = card.dataset.desc || '';
-  const img = card.dataset.img || 'assets/images/product-classic.jpg';
+  const img = card.dataset.img || 'assets/images/product-classic.webp';
   const detail = card.dataset.detail || '';
   const gallery = card.dataset.gallery
     ? card.dataset.gallery.split('|').map(item => item.trim()).filter(Boolean)
