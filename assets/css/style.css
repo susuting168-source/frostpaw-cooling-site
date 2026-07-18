@@ -1716,3 +1716,30 @@ html, body {
     display:none;
   }
 }
+
+/* OEM showcase with supplied factory imagery */
+.oem-section-legacy{display:none}
+.oem-showcase{overflow:hidden;border:1px solid #a9d2fc;border-radius:22px;background:#fff;box-shadow:0 16px 42px rgba(12,75,158,.10)}
+.oem-showcase-main{display:grid;grid-template-columns:minmax(340px,.7fr) minmax(0,1.3fr);min-height:610px}
+.oem-showcase-copy{padding:46px 48px;background:linear-gradient(135deg,#fff 0%,#f7fbff 100%);display:flex;flex-direction:column;align-items:flex-start}
+.oem-showcase-copy h2{margin:20px 0 16px;max-width:480px;color:#092461;font-size:48px;line-height:1.12;letter-spacing:0}
+.oem-showcase-copy>p:not(.eyebrow){margin:0;max-width:440px;color:#47628c;font-size:16px;line-height:1.55}
+.oem-capability-list{display:grid;gap:13px;margin:26px 0 28px;padding:0;list-style:none;color:#102b67;font-size:16px;font-weight:800}
+.oem-capability-list li{display:flex;align-items:center;gap:15px}
+.oem-capability-list .oem-icon{flex:0 0 44px;width:44px;height:44px;margin:0;border:1px solid #d5e6ff;border-radius:12px;background:#eff7ff;color:#075fe4;display:grid;place-items:center}
+.oem-capability-list .oem-icon svg{width:24px;height:24px}
+.oem-project-btn{margin-top:auto;min-height:54px;padding:0 28px}
+.oem-showcase-visual{position:relative;min-height:610px;background:#eaf5ff;overflow:hidden}
+.oem-showcase-visual>img{width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;inset:0}
+.oem-top-tags{position:absolute;z-index:1;top:24px;right:28px;display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.oem-top-tags span{padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 5px 18px rgba(6,46,117,.10);color:#102b67;font-size:14px;font-weight:850}
+.oem-metrics{position:absolute;z-index:1;right:28px;bottom:24px;left:80px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.oem-metrics div{min-height:82px;padding:13px 18px;border:1px solid rgba(255,255,255,.7);border-radius:15px;background:rgba(255,255,255,.93);box-shadow:0 8px 26px rgba(8,66,137,.12);display:flex;flex-direction:column;justify-content:center}
+.oem-metrics strong{color:#082b73;font-size:29px;line-height:1;font-weight:900}.oem-metrics span{margin-top:5px;color:#50648a;font-size:13px;font-weight:750}
+.oem-process-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding:14px 0 0;background:#f7fbff}
+.oem-process-cards article{position:relative;overflow:hidden;border:1px solid #b8d9ff;border-radius:17px 17px 0 0;background:#fff}
+.oem-process-cards img{width:100%;aspect-ratio:1.76;object-fit:cover}
+.oem-process-cards article>div{min-height:66px;padding:10px 15px;display:flex;gap:13px;align-items:center;color:#102b67;font-size:14px;font-weight:850}
+.oem-process-cards strong{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:0 0 38px;background:#075fe4;color:#fff;font-size:13px}.oem-process-cards span{line-height:1.2}
+@media (max-width:980px){.oem-showcase-main{grid-template-columns:1fr}.oem-showcase-visual{min-height:500px}.oem-showcase-copy{padding:38px}.oem-showcase-copy h2{max-width:650px}.oem-project-btn{margin-top:0}.oem-process-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:14px}}
+@media (max-width:640px){.oem-showcase{border-radius:14px}.oem-showcase-copy{padding:28px 22px}.oem-showcase-copy h2{font-size:35px}.oem-capability-list{font-size:14px;gap:11px}.oem-capability-list .oem-icon{flex-basis:38px;width:38px;height:38px}.oem-showcase-visual{min-height:390px}.oem-top-tags{top:14px;right:14px;left:14px;gap:7px}.oem-top-tags span{padding:7px 10px;font-size:11px}.oem-metrics{right:12px;bottom:12px;left:12px;gap:7px}.oem-metrics div{min-height:62px;padding:9px 8px;border-radius:10px}.oem-metrics strong{font-size:20px}.oem-metrics span{font-size:10px}.oem-process-cards{grid-template-columns:1fr;padding:12px;gap:12px}.oem-process-cards article{border-radius:12px}.oem-process-cards img{aspect-ratio:1.9}}
