@@ -1771,17 +1771,3 @@ html, body {
 .oem-showcase-visual{background:#eaf5ff}
 .oem-showcase-visual>img{object-fit:contain;background:#eaf5ff}
 .oem-process-cards img{object-fit:contain;background:#edf6ff}
-
-/* Dedicated car travel product category. */
-.car-travel-section{padding-top:34px;background:#f7fbff}
-.car-travel-product{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);align-items:stretch;border:1px solid #c8def2;border-radius:18px;background:#fff;box-shadow:0 12px 34px rgba(6,69,145,.09);overflow:hidden}
-.car-travel-product:hover{transform:none;box-shadow:0 16px 40px rgba(6,69,145,.13)}
-.car-travel-image{min-height:440px;background:#edf5fb}
-.car-travel-image img{width:100%;height:100%;object-fit:cover}
-.car-travel-copy{padding:42px;display:flex;flex-direction:column;align-items:flex-start}
-.car-travel-copy h3{margin:18px 0 16px;color:#082d68;font-size:clamp(30px,3vw,43px);line-height:1.12;letter-spacing:0}
-.car-travel-copy>p{max-width:510px;margin:0 0 24px;color:#49658b;font-size:17px;line-height:1.65}
-.car-travel-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.car-travel-actions .btn{min-height:50px}
-@media(max-width:900px){.car-travel-product{grid-template-columns:1fr}.car-travel-image{min-height:0;aspect-ratio:1}.car-travel-copy{padding:32px}.car-travel-image img{object-fit:contain}}
-@media(max-width:640px){.car-travel-section{padding-top:24px}.car-travel-copy{padding:26px 22px}.car-travel-copy h3{font-size:30px}.car-travel-copy>p{font-size:16px}.car-travel-actions{width:100%;flex-direction:column}.car-travel-actions .btn{width:100%}}
