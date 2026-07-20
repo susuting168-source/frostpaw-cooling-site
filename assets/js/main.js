@@ -115,7 +115,7 @@ const createActions = detail => {
     </div>`;
 };
 
-const createCarTravelModal = (title, subtitle, desc, gallery, detailItems) => {
+const createCarTravelModal = (title, subtitle, desc, gallery, detailItems, kicker) => {
   const whatsappText = encodeURIComponent(`Hello FrostPaw Cooling, I would like a wholesale quote for ${title}.`);
   const features = detailItems.slice(0, 3);
 
@@ -123,7 +123,7 @@ const createCarTravelModal = (title, subtitle, desc, gallery, detailItems) => {
     <div class="modal-car-travel-layout">
       ${createImageGallery(title, gallery)}
       <div class="modal-car-travel-copy">
-        <p class="modal-kicker">FrostPaw Travel Product</p>
+        <p class="modal-kicker">${kicker || 'FrostPaw Travel Product'}</p>
         <h3 id="product-modal-title">${title}</h3>
         ${subtitle ? `<p class="modal-car-travel-subtitle">${subtitle}</p>` : ''}
         <p class="modal-car-travel-description">${desc}</p>
@@ -148,11 +148,12 @@ const openModal = card => {
     ? card.dataset.details.split('||').map(item => item.trim()).filter(Boolean)
     : [];
   const isCarTravel = card.dataset.modalLayout === 'car-travel';
+  const modalKicker = card.dataset.modalKicker || '';
 
   modalPanel?.classList.toggle('modal-panel--car-travel', isCarTravel);
 
   modalContent.innerHTML = isCarTravel
-    ? createCarTravelModal(title, subtitle, desc, gallery, detailItems)
+    ? createCarTravelModal(title, subtitle, desc, gallery, detailItems, modalKicker)
     : `
       ${createImageGallery(title, gallery)}
       <h3 id="product-modal-title">${title}</h3>
