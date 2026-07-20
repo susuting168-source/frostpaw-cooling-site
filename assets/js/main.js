@@ -2,6 +2,7 @@ const nav = document.querySelector('[data-nav]');
 const toggle = document.querySelector('[data-menu-toggle], [data-nav-toggle]');
 const modal = document.querySelector('[data-modal]');
 const modalContent = document.querySelector('[data-modal-content]');
+const modalPanel = modal?.querySelector('.modal-panel');
 
 if (toggle && nav) {
   toggle.setAttribute('aria-expanded', 'false');
@@ -114,6 +115,24 @@ const createActions = detail => {
     </div>`;
 };
 
+const createCarTravelModal = (title, subtitle, desc, gallery, detailItems) => {
+  const whatsappText = encodeURIComponent(`Hello FrostPaw Cooling, I would like a wholesale quote for ${title}.`);
+  const features = detailItems.slice(0, 3);
+
+  return `
+    <div class="modal-car-travel-layout">
+      ${createImageGallery(title, gallery)}
+      <div class="modal-car-travel-copy">
+        <p class="modal-kicker">FrostPaw Travel Product</p>
+        <h3 id="product-modal-title">${title}</h3>
+        ${subtitle ? `<p class="modal-car-travel-subtitle">${subtitle}</p>` : ''}
+        <p class="modal-car-travel-description">${desc}</p>
+        <ul class="modal-car-travel-features">${features.map(item => `<li>${item}</li>`).join('')}</ul>
+        <a class="modal-whatsapp-cta" href="https://api.whatsapp.com/send?phone=8615277383017&amp;text=${whatsappText}" target="_blank" rel="noopener">Get a Quote on WhatsApp &#x2192;</a>
+      </div>
+    </div>`;
+};
+
 const openModal = card => {
   if (!modal || !modalContent || !card) return;
 
@@ -128,15 +147,20 @@ const openModal = card => {
   const detailItems = card.dataset.details
     ? card.dataset.details.split('||').map(item => item.trim()).filter(Boolean)
     : [];
+  const isCarTravel = card.dataset.modalLayout === 'car-travel';
 
-  modalContent.innerHTML = `
-    ${createImageGallery(title, gallery)}
-    <h3 id="product-modal-title">${title}</h3>
-    ${subtitle ? `<p class="modal-subtitle">${subtitle}</p>` : ''}
-    <p>${desc}</p>
-    ${createDetailsList(detailItems)}
-    ${createActions(detail)}
-  `;
+  modalPanel?.classList.toggle('modal-panel--car-travel', isCarTravel);
+
+  modalContent.innerHTML = isCarTravel
+    ? createCarTravelModal(title, subtitle, desc, gallery, detailItems)
+    : `
+      ${createImageGallery(title, gallery)}
+      <h3 id="product-modal-title">${title}</h3>
+      ${subtitle ? `<p class="modal-subtitle">${subtitle}</p>` : ''}
+      <p>${desc}</p>
+      ${createDetailsList(detailItems)}
+      ${createActions(detail)}
+    `;
 
   const mainImage = modalContent.querySelector('[data-modal-main-image]');
   const thumbs = modalContent.querySelectorAll('[data-modal-thumb]');
@@ -157,6 +181,7 @@ const openModal = card => {
 const closeModal = () => {
   if (!modal) return;
   modal.classList.remove('is-open');
+  modalPanel?.classList.remove('modal-panel--car-travel');
   modal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-open');
 };

@@ -1159,6 +1159,146 @@ p{
   .modal-actions{grid-template-columns:1fr}
 }
 
+/* Car travel product only: reference-style product detail modal. */
+.modal-panel--car-travel{
+  width:min(96vw,1220px);
+  max-height:min(90vh,760px);
+  padding:0;
+  overflow:hidden;
+}
+.modal-panel--car-travel .modal-close{
+  z-index:2;
+  top:18px;
+  right:18px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#eff7ff;
+  font-size:32px;
+  line-height:1;
+  box-shadow:0 8px 22px rgba(6,70,150,.12);
+}
+.modal-car-travel-layout{
+  display:grid;
+  grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr);
+  min-height:640px;
+}
+.modal-panel--car-travel .modal-gallery{
+  grid-template-rows:minmax(0,1fr) auto;
+  align-items:center;
+  gap:20px;
+  padding:42px 30px 30px;
+  background:#eef7ff;
+}
+.modal-panel--car-travel .modal-main-image{
+  width:100%;
+  height:420px;
+  aspect-ratio:auto;
+  object-fit:contain;
+}
+.modal-panel--car-travel .modal-thumbs{
+  grid-template-columns:repeat(2,120px);
+  gap:14px;
+}
+.modal-panel--car-travel .modal-thumb{
+  border-radius:14px;
+}
+.modal-panel--car-travel .modal-thumb img{
+  object-fit:contain;
+  background:#fff;
+}
+.modal-car-travel-copy{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:66px 60px 46px;
+  background:#fff;
+}
+.modal-kicker{
+  margin:0 0 18px;
+  color:var(--blue);
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.modal-car-travel-copy h3{
+  max-width:620px;
+  margin:0;
+  color:#0b4198;
+  font-size:clamp(38px,4vw,62px);
+  line-height:1.04;
+  letter-spacing:0;
+}
+.modal-car-travel-subtitle{
+  margin:16px 0 22px;
+  color:#1b3f78;
+  font-size:26px;
+  font-weight:850;
+  line-height:1.2;
+}
+.modal-car-travel-description{
+  max-width:600px;
+  margin:0;
+  color:#59718f;
+  font-size:18px;
+  line-height:1.7;
+}
+.modal-car-travel-features{
+  display:grid;
+  gap:13px;
+  margin:28px 0 32px;
+  padding:0;
+  list-style:none;
+  color:#274878;
+  font-size:17px;
+  font-weight:800;
+}
+.modal-car-travel-features li{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+}
+.modal-car-travel-features li::before{
+  content:'✓';
+  display:grid;
+  flex:0 0 24px;
+  width:24px;
+  height:24px;
+  place-items:center;
+  border-radius:50%;
+  background:#e4f1ff;
+  color:var(--blue);
+  font-weight:900;
+}
+.modal-whatsapp-cta{
+  display:flex;
+  width:100%;
+  min-height:64px;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:#1461d7;
+  color:#fff;
+  font-size:18px;
+  font-weight:900;
+  box-shadow:0 12px 24px rgba(11,80,193,.22);
+  transition:.2s;
+}
+.modal-whatsapp-cta:hover{background:#0a4db5;transform:translateY(-2px)}
+@media (max-width:800px){
+  .modal-panel--car-travel{width:min(94vw,640px);max-height:92vh;overflow:auto}
+  .modal-car-travel-layout{grid-template-columns:1fr;min-height:0}
+  .modal-panel--car-travel .modal-gallery{padding:56px 22px 22px}
+  .modal-panel--car-travel .modal-main-image{height:auto;aspect-ratio:1/1}
+  .modal-panel--car-travel .modal-thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .modal-car-travel-copy{padding:34px 26px 30px}
+  .modal-car-travel-copy h3{font-size:38px}
+  .modal-car-travel-subtitle{font-size:22px}
+  .modal-car-travel-description{font-size:16px}
+  .modal-car-travel-features{font-size:16px;margin:24px 0 28px}
+}
+
 
 /* ===== Mobile Fix Patch: overflow, layout, spacing ===== */
 
