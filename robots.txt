@@ -46,4 +46,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://frostpaw.us/sitemap.xml
+Sitemap: https://www.frostpaw.us/sitemap.xml

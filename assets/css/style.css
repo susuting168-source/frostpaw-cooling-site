@@ -1197,7 +1197,8 @@ p{
   object-fit:contain;
 }
 .modal-panel--car-travel .modal-thumbs{
-  grid-template-columns:repeat(2,120px);
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  width:100%;
   gap:14px;
 }
 .modal-panel--car-travel .modal-thumb{
@@ -1291,7 +1292,7 @@ p{
   .modal-car-travel-layout{grid-template-columns:1fr;min-height:0}
   .modal-panel--car-travel .modal-gallery{padding:56px 22px 22px}
   .modal-panel--car-travel .modal-main-image{height:auto;aspect-ratio:1/1}
-  .modal-panel--car-travel .modal-thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .modal-panel--car-travel .modal-thumbs{grid-template-columns:repeat(3,minmax(0,1fr))}
   .modal-car-travel-copy{padding:34px 26px 30px}
   .modal-car-travel-copy h3{font-size:38px}
   .modal-car-travel-subtitle{font-size:22px}
