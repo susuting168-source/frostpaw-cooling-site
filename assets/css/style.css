@@ -1164,7 +1164,11 @@ p{
   width:min(96vw,1220px);
   max-height:min(90vh,760px);
   padding:0;
-  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+  -webkit-overflow-scrolling:touch;
 }
 .modal-panel--car-travel .modal-close{
   z-index:2;
