@@ -1916,3 +1916,7 @@ html, body {
 .oem-showcase-visual{background:#eaf5ff}
 .oem-showcase-visual>img{object-fit:contain;background:#eaf5ff}
 .oem-process-cards img{object-fit:contain;background:#edf6ff}
+
+.form-fallback-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.form-fallback-actions .btn{width:auto}
+@media (max-width:520px){.form-fallback-actions{display:grid;grid-template-columns:1fr}.form-fallback-actions .btn{width:100%}}

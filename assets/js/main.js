@@ -245,9 +245,15 @@ document.querySelectorAll('[data-quote-form]').forEach(form => {
     ].join('\n');
 
     const whatsappUrl = `https://api.whatsapp.com/send?phone=8615277383017&text=${encodeURIComponent(whatsappMessage)}`;
+    const emailUrl = `mailto:sususan12341@gmail.com?subject=${encodeURIComponent('Wholesale inquiry from FrostPaw Cooling')}&body=${encodeURIComponent(whatsappMessage)}`;
 
     if (note) {
-      note.textContent = 'Opening WhatsApp with your inquiry details...';
+      note.innerHTML = `
+        <span>Choose how to send your inquiry:</span>
+        <span class="form-fallback-actions">
+          <a class="btn btn-primary small" href="${whatsappUrl}" target="_blank" rel="noopener">Send via WhatsApp</a>
+          <a class="btn btn-outline small" href="${emailUrl}">Send by Email</a>
+        </span>`;
     }
 
     window.open(whatsappUrl, '_blank', 'noopener');
