@@ -247,7 +247,7 @@ document.querySelectorAll('[data-quote-form]').forEach(form => {
     ].join('\n');
 
     const whatsappUrl = `https://api.whatsapp.com/send?phone=8615277383017&text=${encodeURIComponent(whatsappMessage)}`;
-    const emailUrl = `mailto:sususan12341@gmail.com?subject=${encodeURIComponent('Wholesale inquiry from FrostPaw Cooling')}&body=${encodeURIComponent(whatsappMessage)}`;
+    const emailUrl = `mailto:1441539296@qq.com?subject=${encodeURIComponent('Wholesale inquiry from FrostPaw Cooling')}&body=${encodeURIComponent(whatsappMessage)}`;
 
     if (submitButton) {
       submitButton.disabled = true;
