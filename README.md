@@ -37,7 +37,7 @@ http://localhost:8080
 
 ## Notes
 
-- The form is currently a front-end demo. Connect it to Formspree, Shopify, WooCommerce, HubSpot, or your own backend before launch.
+- The inquiry form uses the Vercel endpoint at `/api/quote`. To activate email delivery, configure these Vercel environment variables: `RESEND_API_KEY`, `LEAD_FROM_EMAIL` (a Resend-verified sender), and `LEAD_RECIPIENT_EMAIL` (the mailbox that receives inquiries). WhatsApp and email links remain available as a fallback.
 - Product and factory images are placed in `assets/images/`; replace them with final product photography using the same filenames if needed.
 - The layout is responsive for desktop, tablet, and mobile.
 

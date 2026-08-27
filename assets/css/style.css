@@ -1919,5 +1919,6 @@ html, body {
 
 .form-fallback-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
 .form-fallback-actions .btn{width:auto}
+.form-honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .product-range-summary{max-width:700px;margin:0;color:var(--muted);font-size:16px;line-height:1.6}
 @media (max-width:520px){.form-fallback-actions{display:grid;grid-template-columns:1fr}.form-fallback-actions .btn{width:100%}}

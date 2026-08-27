@@ -228,7 +228,9 @@ document.querySelectorAll('[data-quote-form]').forEach(form => {
     const country = formData.get('country') || '';
     const quantity = formData.get('moq') || '';
     const message = formData.get('message') || '';
+    const website = formData.get('website') || '';
     const note = form.querySelector('[data-form-note]');
+    const submitButton = form.querySelector('button[type="submit"]');
 
     const whatsappMessage = [
       'Hello FrostPaw Cooling, I would like to get a wholesale quote for pet cooling mats.',
@@ -247,15 +249,43 @@ document.querySelectorAll('[data-quote-form]').forEach(form => {
     const whatsappUrl = `https://api.whatsapp.com/send?phone=8615277383017&text=${encodeURIComponent(whatsappMessage)}`;
     const emailUrl = `mailto:sususan12341@gmail.com?subject=${encodeURIComponent('Wholesale inquiry from FrostPaw Cooling')}&body=${encodeURIComponent(whatsappMessage)}`;
 
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.setAttribute('aria-busy', 'true');
+    }
+
     if (note) {
-      note.innerHTML = `
-        <span>Choose how to send your inquiry:</span>
-        <span class="form-fallback-actions">
-          <a class="btn btn-primary small" href="${whatsappUrl}" target="_blank" rel="noopener">Send via WhatsApp</a>
-          <a class="btn btn-outline small" href="${emailUrl}">Send by Email</a>
-        </span>`;
+      note.textContent = 'Opening WhatsApp and saving a copy of your inquiry...';
     }
 
     window.open(whatsappUrl, '_blank', 'noopener');
+
+    fetch('/api/quote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, phone, company, country, quantity, message, website, source: window.location.href })
+    })
+      .then(response => response.ok ? response.json() : Promise.reject())
+      .then(() => {
+        if (note) {
+          note.textContent = 'Your inquiry was saved. WhatsApp was also opened for a faster reply.';
+        }
+      })
+      .catch(() => {
+        if (note) {
+          note.innerHTML = `
+            <span>WhatsApp was opened. You can also send the inquiry by email:</span>
+            <span class="form-fallback-actions">
+              <a class="btn btn-primary small" href="${whatsappUrl}" target="_blank" rel="noopener">Send via WhatsApp</a>
+              <a class="btn btn-outline small" href="${emailUrl}">Send by Email</a>
+            </span>`;
+        }
+      })
+      .finally(() => {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.removeAttribute('aria-busy');
+        }
+      });
   });
 });
